@@ -25,35 +25,7 @@
 #
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import logging
-import time
-from functools import wraps
-from typing import Callable
-
 import pandas as pd
-
-
-def log_running_time(func: Callable) -> Callable:
-    """Decorator for logging node execution time.
-
-        Args:
-            func: Function to be executed.
-        Returns:
-            Decorator for logging the running time.
-
-    """
-
-    @wraps(func)
-    def with_time(*args, **kwargs):
-        log = logging.getLogger(__name__)
-        t_start = time.time()
-        result = func(*args, **kwargs)
-        t_end = time.time()
-        elapsed = t_end - t_start
-        log.info("Running %r took %.2f seconds", func.__name__, elapsed)
-        return result
-
-    return with_time
 
 
 def _is_true(x):
@@ -70,7 +42,6 @@ def _parse_money(x):
     return float(x.replace("$", "").replace(",", ""))
 
 
-@log_running_time
 def preprocess_companies(companies: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data for companies.
 
@@ -88,7 +59,6 @@ def preprocess_companies(companies: pd.DataFrame) -> pd.DataFrame:
     return companies
 
 
-@log_running_time
 def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data for shuttles.
 
