@@ -11,7 +11,7 @@ Our project will be based on the following scenario:
 
 This tutorial covers:
  - Project setup
- - [Setting up a new Kedro project](docs/project-setup.md#creating-a-new-kedro-project)
+ - [Setting up a new Kedro project](docs/04_new_project.md)
  - Using the Data Catalog to connect to data sources
  - Creating, running and visualising a pipeline
  - Advanced functionality in Kedro
