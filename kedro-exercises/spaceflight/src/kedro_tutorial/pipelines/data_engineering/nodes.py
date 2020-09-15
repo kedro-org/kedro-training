@@ -25,11 +25,12 @@
 #
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import pandas as pd
+import logging
+import time
 from functools import wraps
 from typing import Callable
-import time
-import logging
+
+import pandas as pd
 
 
 def log_running_time(func: Callable) -> Callable:

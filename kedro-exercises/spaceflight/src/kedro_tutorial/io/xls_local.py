@@ -3,10 +3,9 @@ underlying functionality is supported by pandas, so it supports all
 allowed pandas options for loading and saving Excel files.
 """
 from os.path import isfile
-from typing import Any, Union, Dict
+from typing import Any, Dict, Union
 
 import pandas as pd
-
 from kedro.io import AbstractDataSet
 
 

@@ -31,7 +31,6 @@ from typing import Dict
 
 from kedro.pipeline import Pipeline
 
-
 # Here you can define your data-driven pipeline by importing your functions
 # and adding them to the pipeline as follows:
 #
