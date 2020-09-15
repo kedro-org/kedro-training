@@ -42,7 +42,7 @@ class ProjectContext(KedroContext):
     """
 
     project_name = "kedro-tutorial"
-    project_version = "0.16.4"
+    project_version = "0.16.5"
 
     def _get_pipelines(self) -> Dict[str, Pipeline]:
         return create_pipelines()
