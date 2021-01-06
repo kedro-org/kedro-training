@@ -13,3 +13,4 @@ pytest-mock>=1.7.1, <2.0
 pytest~=5.0
 wheel==0.32.2
 scikit-learn==0.23.2
+anyconfig>=0.10.0 # not directly required, pinned by Snyk to avoid a vulnerability
