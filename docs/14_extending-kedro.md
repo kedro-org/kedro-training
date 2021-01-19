@@ -28,7 +28,7 @@ Once you have made the modification, if you run `kedro -h` in your terminal, you
 
 ![](../img/custom_command.png)
 
-Running the custom command:
+Run the custom command:
 
 ```shell
 $ kedro custom to-json
