@@ -1,4 +1,4 @@
-# Adding a custom CLI command
+# How to add a custom CLI command
 
 As the following steps explain, to add a new custom CLI command, you need to create a new `click` group, add a `@cli.command()` to that group and then register the new group with `cli` group defined in `src/<package_name>/cli.py`:
 
