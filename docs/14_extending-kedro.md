@@ -24,7 +24,7 @@ cli.add_command(custom)
 ...
 ```
 
-After the modification, running `kedro -h` in your terminal will show the new `custom` group.
+Once you have made the modification, if you run `kedro -h` in your terminal, you see the new `custom` group.
 
 ![](../img/custom_command.png)
 
