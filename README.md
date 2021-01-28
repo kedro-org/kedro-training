@@ -1,17 +1,18 @@
 # Kedro Training
 
-This repository contains training materials that will teach you how to use [Kedro](https://github.com/quantumblacklabs/kedro/). This content is based on the [Spaceflights tutorial](https://kedro.readthedocs.io/en/stable/03_tutorial/02_tutorial_template.html) using Kedro 0.16.5 specified in our documentation.
+This repository contains training materials that will teach you how to use [Kedro](https://github.com/quantumblacklabs/kedro/). This content is based on the [Spaceflights tutorial](https://kedro.readthedocs.io/en/latest/03_tutorial/01_spaceflights_tutorial.html) using Kedro 0.17.0 specified in our documentation.
 
 ## Scenario
 
 Our project will be based on the following scenario:
+
 > It is 2160 and the space tourism industry is booming. Globally, there are thousands of space shuttle companies taking tourists to the Moon and back. You have been able to source amenities offered in each space shuttle, customer reviews and company information. You want to construct a model for predicting the price for each trip to the Moon and the corresponding return flight. 🚀
 
 ## Agenda
 
 This tutorial covers:
- - Project setup
- - [Setting up a new Kedro project](docs/04_new_project.md)
+
+ - How to set up a new Kedro project
  - Using the Data Catalog to connect to data sources
  - Creating, running and visualising a pipeline
  - Advanced functionality in Kedro
