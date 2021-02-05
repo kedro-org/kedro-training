@@ -124,5 +124,4 @@ raw_car_data:
 
 > Note: `TemplatedConfigLoader` uses `jmespath` package in the background to extract elements from global dictionary. For more information about JMESPath syntax please see: https://github.com/jmespath/jmespath.py.
 
-### Next section
-[Go to the next section](./12_transcoding.md)
+_[Go to the next page](./12_transcoding.md)_

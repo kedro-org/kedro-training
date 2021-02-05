@@ -138,5 +138,4 @@ def convert_me():
 > Tip: You can also convert all your notebooks at once by calling `kedro jupyter convert --all`
 * now `convert_me` function can be used in your Kedro pipelines
 
-### Next section
-[Go to the next section](./07_pipelines.md)
+_[Go to the next page](./07_pipelines.md)_

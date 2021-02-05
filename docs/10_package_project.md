@@ -28,5 +28,4 @@ Ensuring that you have accounted for all Python package versions that your proje
 
 - We also support converting your Kedro project into an Airflow project with the [Kedro-Airflow](https://github.com/quantumblacklabs/kedro-airflow) plugin.
 
-### Next section
-[Go to the next section](./11_configuration.md)
+_[Go to the next page](./11_configuration.md)_

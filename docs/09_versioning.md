@@ -107,5 +107,4 @@ kedro run --load-version="dataset1:YYYY-MM-DDThh.mm.ss.sssZ" --load-version="dat
 ```
 where `--load-version` should contain a dataset name and load version timestamp separated by `:`.
 
-### Next section
-[Go to the next section](./10_package-project.md)
+_[Go to the next page](./10_package_project.md)_

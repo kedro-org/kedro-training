@@ -55,5 +55,4 @@ cars:
   credentials: dev_s3
 ```
 
-### Next section
-[Go to the next section](./03_kedro_commands.md)
+_[Go to the next page](./05_connect_data_sources.md)_

@@ -1,4 +1,4 @@
-## Adding your datasets to `data`
+# Add your datasets to `data`
 
 Before you start a Kedro project, you need to prepare the datasets. This tutorial will make use of fictional datasets for spaceflight companies shuttling customers to the Moon and back. You will use the data to train a model to predict the price of shuttle hire.
 
@@ -68,7 +68,7 @@ curl -o data\01_raw\shuttles.xlsx https://raw.githubusercontent.com/quantumblack
 ```
 </details>
 
-## Using the Data Catalog with `catalog.yml`
+## How to use the Data Catalog with `catalog.yml`
 
 To work with the datasets provided you need to make sure they can be loaded by Kedro.
 
@@ -111,5 +111,4 @@ When you have finished, simply close `ipython` session by typing the following:
 exit()
 ```
 
-### Next section
-[Go to the next section](./06_jupyter-notebook-workflow.md)
+_[Go to the next page](./06_jupyter_notebook_workflow.md)_

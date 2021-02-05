@@ -176,5 +176,5 @@ $ kedro run
 ...
 ```
 
-### Next section
-[Go to the next section](./09_versioning.md)
+_[Go to the next page](./09_versioning.md)_
+

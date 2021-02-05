@@ -40,5 +40,5 @@ $ kedro custom to-json
 
 The only possible way to extend an existing command is to create a new custom command as described in the previous section.
 
-### Next section
-[Go to the next section](./15_plugins.md)
+_[Go to the next page](./15_plugins.md)_
+
