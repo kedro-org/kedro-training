@@ -2,8 +2,6 @@
 
 This section mirrors the [spaceflights tutorial in the Kedro documentation](https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html).
 
-<iframe src="https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html" title="Spaceflights tutorial"></iframe>
-
 Navigate to your chosen working directory and run the following to [create a new empty Kedro project](https://kedro.readthedocs.io/en/stable/02_get_started/04_new_project.html#create-a-new-project-interactively) using the default interactive prompts:
 
 ```bash

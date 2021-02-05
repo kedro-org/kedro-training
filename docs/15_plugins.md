@@ -150,6 +150,6 @@ If you need more customisation for Airflow, you can find more information in the
 
 Once `dags` folder is created, you can perform airflow commands. For example, you could run `airflow initdb` to initialise the Airflow SQLite database `airflow.db` under `$AIRFLOW_HOME/dags/`, or `airflow webserver` to start Flask server for Airflow UI as follows:
 
-![Airflow UI](../img/airflow_ui.png)
+![Airflow UI](./img/airflow_ui.png)
 
 You can find more details about Airflow command in their [documentation](https://airflow.apache.org/howto/index.html).

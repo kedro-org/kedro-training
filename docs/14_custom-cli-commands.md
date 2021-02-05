@@ -26,7 +26,7 @@ cli.add_command(custom)
 
 Once you have made the modification, if you run `kedro -h` in your terminal, you see the new `custom` group.
 
-![](../img/custom_command.png)
+![](./img/custom_command.png)
 
 Run the custom command:
 
