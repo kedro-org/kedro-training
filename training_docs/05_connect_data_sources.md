@@ -1,6 +1,16 @@
 # Add your datasets to `data`
 
-Before you start a Kedro project, you need to prepare the datasets. This tutorial will make use of fictional datasets for spaceflight companies shuttling customers to the Moon and back. You will use the data to train a model to predict the price of shuttle hire.
+In this section, we discuss the data set-up phase, which is the second part of the [standard development workflow](./01_spaceflights_tutorial.md#kedro-project-development-workflow). The steps are as follows:
+
+* Add datasets to your `data/` folder, according to [data engineering convention](../12_faq/01_faq.md#what-is-data-engineering-convention)
+* Register the datasets with the Data Catalog, which is the registry of all data sources available for use by the project `conf/base/catalog.yml`. This ensures that your code is reproducible when it references datasets in different locations and/or environments.
+
+You can find further information about [the Data Catalog](../05_data/01_data_catalog.md) in specific documentation covering advanced usage.
+
+
+## Add your datasets to `data`
+
+The spaceflights tutorial makes use of fictional datasets of companies shuttling customers to the Moon and back. You will use the data to train a model to predict the price of shuttle hire. However, before you get to train the model, you will need to prepare the data by doing some data engineering, which is the process of preparing data for model building by creating a master table.
 
 The spaceflight tutorial has three files and uses two data formats: `.csv` and `.xlsx`. Download and save the files to the `data/01_raw/` folder of your project directory:
 
@@ -8,80 +18,77 @@ The spaceflight tutorial has three files and uses two data formats: `.csv` and `
 * [companies.csv](https://quantumblacklabs.github.io/kedro/companies.csv)
 * [shuttles.xlsx](https://quantumblacklabs.github.io/kedro/shuttles.xlsx)
 
-Here is an example of how you can [download the files from GitHub](https://www.quora.com/How-do-I-download-something-from-GitHub) to `data/01_raw` directory inside your project using [cURL](https://curl.haxx.se/download.html) in a Unix terminal:
+Here are some examples of how you can [download the files from GitHub](https://www.quora.com/How-do-I-download-something-from-GitHub) to the `data/01_raw` directory inside your project:
+
+Using [cURL in a Unix terminal](https://curl.haxx.se/download.html):
 
 <details>
-<summary><b>CLICK TO EXPAND</b></summary>
+<summary><b>Click to expand</b></summary>
 
 ```bash
 # reviews
-curl -o data/01_raw/reviews.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/reviews.csv
+curl -o data/01_raw/reviews.csv https://quantumblacklabs.github.io/kedro/reviews.csv
 # companies
-curl -o data/01_raw/companies.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/companies.csv
+curl -o data/01_raw/companies.csv https://quantumblacklabs.github.io/kedro/companies.csv
 # shuttles
-curl -o data/01_raw/shuttles.xlsx https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/shuttles.xlsx
+curl -o data/01_raw/shuttles.xlsx https://quantumblacklabs.github.io/kedro/shuttles.xlsx
 ```
 </details>
 
-Or through using [Wget](https://www.gnu.org/software/wget/):
+Using [cURL for Windows](https://curl.se/windows/):
 
 <details>
-<summary><b>CLICK TO EXPAND</b></summary>
+<summary><b>Click to expand</b></summary>
+
+```bat
+curl -o data\01_raw\reviews.csv https://quantumblacklabs.github.io/kedro/reviews.csv
+curl -o data\01_raw\companies.csv https://quantumblacklabs.github.io/kedro/companies.csv
+curl -o data\01_raw\shuttles.xlsx https://quantumblacklabs.github.io/kedro/shuttles.xlsx
+```
+</details>
+
+Using [Wget in a Unix terminal](https://www.gnu.org/software/wget/):
+
+<details>
+<summary><b>Click to expand</b></summary>
 
 ```bash
 # reviews
-wget -O data/01_raw/reviews.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/reviews.csv
+wget -O data/01_raw/reviews.csv https://quantumblacklabs.github.io/kedro/reviews.csv
 # companies
-wget -O data/01_raw/companies.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/companies.csv
+wget -O data/01_raw/companies.csv https://quantumblacklabs.github.io/kedro/companies.csv
 # shuttles
-wget -O data/01_raw/shuttles.xlsx https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/shuttles.xlsx
+wget -O data/01_raw/shuttles.xlsx https://quantumblacklabs.github.io/kedro/shuttles.xlsx
 ```
 </details>
 
-Alternatively, if you are a Windows user, try [Wget for Windows](https://eternallybored.org/misc/wget/) and the following commands instead:
+Using [Wget for Windows](https://eternallybored.org/misc/wget/):
 
 <details>
-<summary><b>CLICK TO EXPAND</b></summary>
+<summary><b>Click to expand</b></summary>
 
 ```bat
-# reviews
-wget -O data\01_raw\reviews.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/reviews.csv
-# companies
-wget -O data\01_raw\companies.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/companies.csv
-# shuttles
-wget -O data\01_raw\shuttles.xlsx https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/shuttles.xlsx
+wget -O data\01_raw\reviews.csv https://quantumblacklabs.github.io/kedro/reviews.csv
+wget -O data\01_raw\companies.csv https://quantumblacklabs.github.io/kedro/companies.csv
+wget -O data\01_raw\shuttles.xlsx https://quantumblacklabs.github.io/kedro/shuttles.xlsx
 ```
 </details>
 
-or [cURL for Windows](https://curl.haxx.se/windows/):
+## Register the datasets
 
-<details>
-<summary><b>CLICK TO EXPAND</b></summary>
-
-```bat
-# reviews
-curl -o data\01_raw\reviews.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/reviews.csv
-# companies
-curl -o data\01_raw\companies.csv https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/companies.csv
-# shuttles
-curl -o data\01_raw\shuttles.xlsx https://raw.githubusercontent.com/quantumblacklabs/kedro-examples/master/kedro-tutorial/data/01_raw/shuttles.xlsx
-```
-</details>
-
-## How to use the Data Catalog with `catalog.yml`
-
-To work with the datasets provided you need to make sure they can be loaded by Kedro.
-
-All Kedro projects have a `conf/base/catalog.yml` file where users register the datasets they use. Registering a dataset is as simple as adding a named entry into the `.yml` file, which includes:
+You now need to register the datasets so they can be loaded by Kedro. All Kedro projects have a `conf/base/catalog.yml` file, and you register each dataset by adding a named entry into the `.yml` file. The entry should include the following:
 
 * File location (path)
+* Parameters for the given dataset
 * Type of data
-* Versioning (optional)
-* Any additional arguments (optional)
+* Versioning
 
-Kedro supports a number of different data types, such as `csv`, which is implemented by `pandas.CSVDataSet`. You can find all supported datasets in the API docs for [datasets](https://kedro.readthedocs.io/en/stable/kedro.extras.datasets.html).
+Kedro supports a number of different data types, and those supported can be found in the API documentation. Kedro uses [`fssspec`](https://filesystem-spec.readthedocs.io/en/latest/) to read data from a variety of data stores including local file systems, network file systems, cloud object stores and HDFS.
 
-Let’s start this process by registering the `csv` datasets by copying the following to the end of the `conf/base/catalog.yml` file:
+
+### `csv`
+
+For the spaceflights data, first register the `csv` datasets by adding this snippet to the end of the `conf/base/catalog.yml` file:
 
 ```yaml
 companies:
@@ -91,24 +98,48 @@ companies:
 reviews:
   type: pandas.CSVDataSet
   filepath: data/01_raw/reviews.csv
+```
 
+To check whether Kedro can load the data correctly, open a `kedro ipython` session and run:
+
+```python
+catalog.load("companies").head()
+```
+
+The command loads the dataset named `companies` (as per top-level key in `catalog.yml`), from the underlying filepath `data/01_raw/companies.csv`. It displays the first five rows of the dataset, and is loaded into a `pandas` DataFrame for you to experiment with the data.
+
+When you have finished, close `ipython` session as follows:
+
+```python
+exit()
+```
+
+### `xlsx`
+
+Now register the `xlsx` dataset by adding this snippet to the end of the `conf/base/catalog.yml` file:
+
+```yaml
 shuttles:
   type: pandas.ExcelDataSet
   filepath: data/01_raw/shuttles.xlsx
 ```
 
-If you want to check whether Kedro loads the data correctly, open a `kedro ipython` session and run:
+To test that everything works as expected, load the dataset within a _new_ `kedro ipython` session:
 
 ```python
-catalog.load('companies').head()
+catalog.load("shuttles").head()
 ```
-
-This will load the dataset named `companies` (as per top-level key in `catalog.yml`), from the underlying filepath `data/01_raw/companies.csv`, and show you the first five rows of the dataset. It is loaded into a `pandas` DataFrame and you can play with it as you wish.
-
-When you have finished, simply close `ipython` session by typing the following:
+When you have finished, close `ipython` session as follows:
 
 ```python
 exit()
 ```
+
+## Custom data
+
+Kedro supports a number of [datasets](/kedro.extras.datasets) out of the box, but you can also add support for any proprietary data format or filesystem in your pipeline.
+
+You can find further information about [how to add support for custom datasets](../07_extend_kedro/03_custom_datasets.md) in specific documentation covering advanced usage.
+
 
 _[Go to the next page](./06_jupyter_notebook_workflow.md)_
