@@ -22,7 +22,6 @@ To reload these at any point use the line magic `%reload_kedro`. This magic can 
 
 ![](../img/reload_kedro.png)
 
-
 ## What if I cannot run `kedro jupyter notebook`?
 
 In certain cases, you may not be able to run `kedro jupyter notebook` and have to work in a standard Jupyter session. An example of this may be because you don't have a CLI access to the machine where the Jupyter server is running. In that case, you can create a `context` variable yourself by running the following block of code at the top of your notebook:
