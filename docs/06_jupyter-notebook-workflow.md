@@ -20,7 +20,7 @@ Every time you start/restart a Jupyter or IPython session using Kedro command, a
 
 To reload these at any point use the line magic `%reload_kedro`. This magic can also be used to see the error message if any of the variables above are undefined.
 
-![](./img/reload_kedro.png)
+![](../img/reload_kedro.png)
 
 
 ## What if I cannot run `kedro jupyter notebook`?
@@ -38,7 +38,7 @@ context = load_context(proj_path)
 
 ## Using `context` variable
 
-![](./img/context.png)
+![](../img/context.png)
 
 As mentioned earlier in the project overview section, `KedroContext` represents the main application entry point, so having `context` variable available in Jupyter Notebook gives a lot of flexibility in interaction with your project components.
 
@@ -51,7 +51,7 @@ df = catalog.load("companies")
 df.head()
 ```
 
-![](./img/context_catalog_load.png)
+![](../img/context_catalog_load.png)
 
 ### Saving a data
 
@@ -129,9 +129,9 @@ def convert_me():
 ```
 
 * enable tags toolbar: `View` menu -> `Cell Toolbar` -> `Tags`
-![](./img/enable_tags.png)
+![](../img/enable_tags.png)
 * add the `node` tag to the cell containing your function
-![](./img/tag_nb_cell.png)
+![](../img/tag_nb_cell.png)
 > Tip: The notebook can contain multiple functions tagged as `node`, each of them will be exported into the resulting Python file
 
 * save your Jupyter Notebook to `notebooks/my_notebook.ipynb`
