@@ -38,7 +38,7 @@ df.head()
 
 #### Dataset versioning
 
-If you enable [versioning](../05_data/01_data_catalog.md#versioning-datasets-and-ml-models), you can load a particular version of a dataset. Given a catalog entry:
+If you enable [versioning](./versioning.md), you can load a particular version of a dataset. Given a catalog entry:
 
 ```yaml
 example_train_x:
@@ -67,7 +67,7 @@ This starts a Jupyter server and opens a window in your default browser.
 
 Navigate to the `notebooks` folder of your Kedro project and create a new notebook.
 
-![](../meta/images/jupyter_create_new_notebook.png)
+![](./images/jupyter_create_new_notebook.png)
 
 > *Note:* The only kernel available by default has a name of the current project. If you need to access all available kernels, add `--all-kernels` to the command above.
 
@@ -81,14 +81,14 @@ Every time you start or restart a Jupyter or IPython session in the CLI using a 
 
 The `context` variable allows you to interact with Kedro library components from within the Kedro Jupyter notebook.
 
-![context input graphic](../meta/images/jupyter_notebook_showing_context.png)
+![context input graphic](./images/jupyter_notebook_showing_context.png)
 
 With `context`, you can access the following variables and methods:
 
 - `context.project_path` (`Path`) - Root directory of the project
 - `context.project_name` (`str`) - Project folder name
-- `context.catalog` (`DataCatalog`) - An instance of [DataCatalog](/kedro.io.DataCatalog)
-- `context.config_loader` (`ConfigLoader`) - An instance of [ConfigLoader](/kedro.config.ConfigLoader)
+- `context.catalog` (`DataCatalog`) - An instance of DataCatalog
+- `context.config_loader` (`ConfigLoader`) - An instance of ConfigLoader
 - `context.pipeline` (`Pipeline`) - Defined pipeline
 
 ### Run the pipeline
@@ -128,7 +128,7 @@ df = catalog.load("example_iris_data")
 df.head()
 ```
 
-![load the catalog and output head graphic](../meta/images/jupyter_notebook_workflow_loading_data.png)
+![load the catalog and output head graphic](./images/jupyter_notebook_workflow_loading_data.png)
 
 The save operation in the example below is analogous to the load.
 
@@ -219,10 +219,10 @@ def some_action():
 ```
 
 * Enable tags toolbar: `View` menu -> `Cell Toolbar` -> `Tags`
-![Enable the tags toolbar graphic](../meta/images/jupyter_notebook_workflow_activating_tags.png)
+![Enable the tags toolbar graphic](./images/jupyter_notebook_workflow_activating_tags.png)
 
 * Add the `node` tag to the cell containing your function
-![Add the node tag graphic](../meta/images/jupyter_notebook_workflow_tagging_nodes.png)
+![Add the node tag graphic](./images/jupyter_notebook_workflow_tagging_nodes.png)
 
 > Tip: The notebook can contain multiple functions tagged as `node`, each of them will be exported into the resulting Python file
 
@@ -313,9 +313,9 @@ context = session.load_context()
 
 To reload these variables at any point (e.g., if you update `catalog.yml`), use the [line magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html) `%reload_kedro`. This magic can also be used to see the error message if any of the variables above are undefined.
 
-![reload kedro line magic graphic](../meta/images/jupyter_notebook_loading_context.png)
+![reload kedro line magic graphic](./images/jupyter_notebook_loading_context.png)
 
-If the `KEDRO_ENV` environment variable is specified, the startup script loads that environment, otherwise it defaults to `local`. Instructions for setting the environment variable can be found in the [Kedro configuration documentation](../04_kedro_project_setup/02_configuration.md#additional-configuration-environments).
+If the `KEDRO_ENV` environment variable is specified, the startup script loads that environment, otherwise it defaults to `local`. Instructions for setting the environment variable can be found in the [Kedro configuration documentation](https://kedro.readthedocs.io/en/stable/04_kedro_project_setup/02_configuration.html#additional-configuration-environments).
 
 
 _[Go to the next page](./07_pipelines.md)_

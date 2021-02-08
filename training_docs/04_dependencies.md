@@ -45,7 +45,7 @@ kedro build-reqs
 [`kedro build-reqs`](https://kedro.readthedocs.io/en/stable/09_development/03_commands_reference.html#build-the-project-s-dependency-tree) takes `requirements.in` file (or `requirements.txt` if it does not yet exist), resolves all package versions and 'freezes' them by putting pinned versions back into `requirements.txt`. It significantly reduces the chances of dependencies issues due to downstream changes as you would always install the same package versions.
 
 
-You can find out more about [how to work with project dependencies](../04_kedro_project_setup/01_dependencies.md) in the Kedro project documentation. In a [later step of this tutorial](./04_create_pipelines.md#update-dependencies), we will modify project's dependencies to illustrate how, once you have installed project-specific dependencies, you can update them.
+You can find out more about [how to work with project dependencies](https://kedro.readthedocs.io/en/stable/04_kedro_project_setup/01_dependencies.html) in the Kedro project documentation. 
 
 ## `kedro install`
 
@@ -54,19 +54,7 @@ To install the project-specific dependencies, navigate to the root directory of 
 ```bash
 kedro install
 ```
-You can find further information in our [advanced documentation about working with dependencies](../04_kedro_project_setup/01_dependencies.md).
 
 This command is roughly equivalent to `pip install -r src/requirements.txt`, however `kedro install` is a bit smarter on Windows when it needs to upgrade its version. It also makes sure that the dependencies are always installed in the same virtual environment as Kedro.
-
-## Example
-
-Let's install and try [Kedro Viz](https://github.com/quantumblacklabs/kedro-viz) so you can visualise your Kedro pipelines. You can do this by running the following commands from the terminal:
-
-```bash
-echo "kedro-viz>=3.0" >> src/requirements.txt  # src\requirements.txt on Windows
-kedro build-reqs  # creates src/requirements.in and pins package versions in src/requirements.txt
-kedro install  # installs packages from src/requirements.txt
-kedro viz  # start Kedro Viz server
-```
 
 _[Go to the next page](./05_connect_data_sources.md)_

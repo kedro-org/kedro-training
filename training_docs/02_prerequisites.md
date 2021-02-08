@@ -55,7 +55,7 @@ Please use this checklist to make sure you have everything necessary to particip
 
 - [ ] You have [Python 3 (either 3.6, 3.7 or 3.8)](https://www.python.org/downloads/) installed on your laptop
 
-- [ ] You have Anaconda or an [alternative](https://github.com/quantumblacklabs/kedro-training/blob/master/docs/02_virtual-environment.md) virtual environment manager
+- [ ] You have Anaconda or an alternative [virtual environment manager](https://kedro.readthedocs.io/en/stable/02_get_started/01_prerequisites.html#virtual-environments) virtual environment manager
 
 - [ ] You have installed [Kedro](#kedro)
 

@@ -1,150 +1,31 @@
-# Creating custom datasets
+# Custom datasets
 
-Often, real world data is stored in formats that are not supported by Kedro. We will illustrate this with `shuttles.xlsx`. In fact, Kedro has built-in support for Microsoft Excel files that includes support for versioning and writer arguments. This example explains a simplified implementation.
+Kedro supports a number of datasets out of the box, but you can also add support for any proprietary data format or filesystem in your pipeline.
 
-Let’s create a custom dataset class which will allow you to load and save `.xlsx` files.
+You can find further information about [how to add support for custom datasets](https://kedro.readthedocs.io/en/stable/07_extend_kedro/03_custom_datasets.html) in specific documentation covering advanced usage.
 
-To keep your code well-structured you should create a Python sub-package called **`kedro_tutorial.io`**. You can do that by running this in your Unix terminal:
+## Contributing a custom dataset implementation
 
-```bash
-mkdir -p src/kedro_tutorial/io && touch src/kedro_tutorial/io/__init__.py
+One of the easiest ways to contribute back to Kedro is to share a custom dataset. Kedro has a :code:`kedro.extras.datasets` sub-package where you can add a new custom dataset implementation to share it with others. You can find out more in the [Kedro contribution guide](https://github.com/quantumblacklabs/kedro/blob/master/CONTRIBUTING.md) on Github.
+
+To contribute your custom dataset:
+
+1. Add your dataset package to `kedro/extras/datasets/`.
+
+For example, in our `ImageDataSet` example, the directory structure should be:
+
+```
+kedro/extras/datasets/image
+├── __init__.py
+└── image_dataset.py
 ```
 
-Or, if you are a Windows user:
+2. If the dataset is complex, create a `README.md` file to explain how it works and document its API.
 
-```bat
-mkdir src\kedro_tutorial\io && type nul > src\kedro_tutorial\io\__init__.py
-```
+3. The dataset should be accompanied by full test coverage in `tests/extras/datasets`.
 
-Creating new custom dataset implementations is done by creating a class that extends and implements all abstract methods from `AbstractDataSet`. To implement a class that will allow you to load and save Excel files locally, you need to create the file `src/kedro_tutorial/io/xls_local.py` by running in your Unix terminal:
+4. Make a pull request against the `master` branch of [Kedro's Github repository](https://github.com/quantumblacklabs/kedro).
 
-```bash
-touch src/kedro_tutorial/io/xls_local.py
-```
-For Windows, try:
-```bat
-type nul > src\kedro_tutorial\io\xls_local.py
-```
-
-and paste the following into the newly created file:
-
-```python
-"""ExcelLocalDataSet loads and saves data to a local Excel file. The
-underlying functionality is supported by pandas, so it supports all
-allowed pandas options for loading and saving Excel files.
-"""
-from os.path import isfile
-from typing import Any, Union, Dict
-
-import pandas as pd
-
-from kedro.io import AbstractDataSet
-
-
-class ExcelLocalDataSet(AbstractDataSet):
-    """``ExcelLocalDataSet`` loads and saves data to a local Excel file. The
-    underlying functionality is supported by pandas, so it supports all
-    allowed pandas options for loading and saving Excel files.
-
-    Example:
-    ::
-
-        >>> import pandas as pd
-        >>>
-        >>> data = pd.DataFrame({'col1': [1, 2], 'col2': [4, 5],
-        >>>                      'col3': [5, 6]})
-        >>> data_set = ExcelLocalDataSet(filepath="test.xlsx",
-        >>>                              load_args={'sheet_name':"Sheet1"},
-        >>>                              save_args=None)
-        >>> data_set.save(data)
-        >>> reloaded = data_set.load()
-        >>>
-        >>> assert data.equals(reloaded)
-
-    """
-
-    def _describe(self) -> Dict[str, Any]:
-        return dict(
-            filepath=self._filepath,
-            engine=self._engine,
-            load_args=self._load_args,
-            save_args=self._save_args,
-        )
-
-    def __init__(
-        self,
-        filepath: str,
-        engine: str = "xlsxwriter",
-        load_args: Dict[str, Any] = None,
-        save_args: Dict[str, Any] = None,
-    ) -> None:
-        """Creates a new instance of ``ExcelLocalDataSet`` pointing to a concrete
-        filepath.
-
-        Args:
-            engine: The engine used to write to excel files. The default
-                          engine is 'xlswriter'.
-
-            filepath: path to an Excel file.
-
-            load_args: Pandas options for loading Excel files.
-                Here you can find all available arguments:
-                https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_excel.html
-                The default_load_arg engine is 'xlrd', all others preserved.
-
-            save_args: Pandas options for saving Excel files.
-                Here you can find all available arguments:
-                https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_excel.html
-                All defaults are preserved.
-
-        """
-        self._filepath = filepath
-        default_save_args = {}
-        default_load_args = {"engine": "xlrd"}
-
-        self._load_args = (
-            {**default_load_args, **load_args}
-            if load_args is not None
-            else default_load_args
-        )
-        self._save_args = (
-            {**default_save_args, **save_args}
-            if save_args is not None
-            else default_save_args
-        )
-        self._engine = engine
-
-    def _load(self) -> Union[pd.DataFrame, Dict[str, pd.DataFrame]]:
-        return pd.read_excel(self._filepath, **self._load_args)
-
-    def _save(self, data: pd.DataFrame) -> None:
-        writer = pd.ExcelWriter(self._filepath, engine=self._engine)
-        data.to_excel(writer, **self._save_args)
-        writer.save()
-
-    def _exists(self) -> bool:
-        return isfile(self._filepath)
-```
-
-And update the `conf/base/catalog.yml` file by adding the following:
-
-```yaml
-shuttles:
-  type: kedro_tutorial.io.xls_local.ExcelLocalDataSet
-  filepath: data/01_raw/shuttles.xlsx
-```
-
-> *Note:* The `type` specified is `kedro_tutorial.io.xls_local.ExcelLocalDataSet` which points Kedro to use the custom dataset implementation. To use Kedro's internal support for reading Excel datasets, you can simply specify `pandas.ExcelDataSet`, which is implemented similar to the code above.
-
-A good way to test that everything works as expected is by trying to load the dataset within a new `kedro ipython` session:
-
-```python
-context.catalog.load('shuttles').head()
-```
-
-### Contributing a custom dataset implementation
-
-Kedro users create many custom dataset implementations while working on real-world projects, and it makes sense that they should be able to share their work with each other. Sharing your custom datasets implementations is possibly the easiest way to contribute back to Kedro and if you are interested in doing so, you can check out the [Kedro contribution guide](https://github.com/quantumblacklabs/kedro/blob/develop/CONTRIBUTING.md) in the GitHub.
 
 _[Go to the next page](./14_custom_cli_commands.md)_
 

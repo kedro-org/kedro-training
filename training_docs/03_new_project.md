@@ -32,7 +32,7 @@ As we work with the spaceflights tutorial, will follow these steps:
 
 ## Create and set up a new project
 
-In this section, we discuss the project set-up phase, which is the first part of the [standard development workflow](./01_spaceflights_tutorial.md#kedro-project-development-workflow). The set-up steps are as follows:
+In this section, we discuss the project set-up phase, with the following steps:
 
 
 * Create a new project
@@ -42,7 +42,7 @@ In this section, we discuss the project set-up phase, which is the first part of
 ----
 In the text, we assume that you create an empty project and follow the flow of the tutorial by copying and pasting the example code into the project as we describe. This tutorial will take approximately 2 hours and you will learn each step of the Kedro project development workflow, by working on an example to construct nodes and pipelines for the price-prediction model.
 
-However, you may prefer to get up and running more swiftly so we provide the full spaceflights example project as a [Kedro starter](../02_get_started/06_starters.md). 
+However, you may prefer to get up and running more swiftly so we provide the full spaceflights example project as a [Kedro starter](https://kedro.readthedocs.io/en/stable/02_get_started/06_starters.html). 
 
 If you decide to create the example project fully populated with code, navigate to your chosen working directory and run the following:
 
@@ -54,7 +54,7 @@ This will generate a project from the [Kedro starter for the spaceflights tutori
 
 ----
 
-If you prefer to create an empty tutorial and cut and paste the code to follow along with the steps, you should instead run the following to [create a new empty Kedro project](../02_get_started/04_new_project.md#create-a-new-project-interactively) using the default interactive prompts:
+If you prefer to create an empty tutorial and cut and paste the code to follow along with the steps, you should instead run the following to [create a new empty Kedro project](https://kedro.readthedocs.io/en/stable/02_get_started/04_new_project.html#create-a-new-project-interactively) using the default interactive prompts:
 
 ```bash
 kedro new
@@ -71,7 +71,7 @@ Take a few minutes to familiarise yourself with the [Kedro project structure](ht
 
 ## Configure the project
 
-You may optionally add in any credentials to `conf/local/credentials.yml` that you would need to load specific data sources like usernames and passwords. Some examples are given within the file to illustrate how you store credentials. Additional information can be found in the [advanced documentation on configuration](../04_kedro_project_setup/02_configuration.md).
+You may optionally add in any credentials to `conf/local/credentials.yml` that you would need to load specific data sources like usernames and passwords. Some examples are given within the file to illustrate how you store credentials. Additional information can be found in a later page on [advanced configuration](./11_configuration.md).
 
 When it runs, Kedro automatically reads credentials from the `conf` folder and feeds them into the Data Catalog, which is responsible for loading and saving data as inputs and outputs of pipeline nodes. You can configure your credentials once and then reuse them in multiple datasets.
 

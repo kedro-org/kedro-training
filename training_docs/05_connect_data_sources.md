@@ -1,11 +1,11 @@
 # Add your datasets to `data`
 
-In this section, we discuss the data set-up phase, which is the second part of the [standard development workflow](./01_spaceflights_tutorial.md#kedro-project-development-workflow). The steps are as follows:
+In this section, we discuss the data set-up phase. The steps are as follows:
 
-* Add datasets to your `data/` folder, according to [data engineering convention](../12_faq/01_faq.md#what-is-data-engineering-convention)
+* Add datasets to your `data/` folder, according to [data engineering convention](https://kedro.readthedocs.io/en/stable/12_faq/01_faq.html#what-is-data-engineering-convention)
 * Register the datasets with the Data Catalog, which is the registry of all data sources available for use by the project `conf/base/catalog.yml`. This ensures that your code is reproducible when it references datasets in different locations and/or environments.
 
-You can find further information about [the Data Catalog](../05_data/01_data_catalog.md) in specific documentation covering advanced usage.
+You can find further information about [the Data Catalog](https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html) in specific documentation covering advanced usage.
 
 
 ## Add your datasets to `data`
@@ -137,9 +137,9 @@ exit()
 
 ## Custom data
 
-Kedro supports a number of [datasets](/kedro.extras.datasets) out of the box, but you can also add support for any proprietary data format or filesystem in your pipeline.
+Kedro supports a number of datasets out of the box, but you can also add support for any proprietary data format or filesystem in your pipeline.
 
-You can find further information about [how to add support for custom datasets](../07_extend_kedro/03_custom_datasets.md) in specific documentation covering advanced usage.
+You can find further information about [how to add support for custom datasets](https://kedro.readthedocs.io/en/stable/07_extend_kedro/03_custom_datasets.html) in specific documentation covering advanced usage.
 
 
 _[Go to the next page](./06_jupyter_notebook_workflow.md)_
