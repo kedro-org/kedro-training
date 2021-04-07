@@ -9,7 +9,7 @@ Welcome! We are so pleased you are starting your Kedro journey.
 * [Add a data source](./05_connect_data_sources.md)
 * [Jupyter notebook workflow](./06_jupyter_notebook_workflow.md)
 * [Kedro pipelines](./07_pipelines.md)
-* [Pipeline visualisatopm](./08_visualisation.md)
+* [Pipeline visualisation](./08_visualisation.md)
 * [Versioning](./09_versioning.md)
 * [Package your project](./10_package_project.md)
 * [Configuration](./11_configuration.md)
