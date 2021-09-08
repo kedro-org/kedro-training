@@ -3,7 +3,7 @@ Welcome! We are so pleased you are starting your Kedro journey.
 
 ## What you'll cover
 
-* [Training prerequisites](./02_prerequisites.md) << Read this before training starts
+* :arrow_right: [Training prerequisites](./02_prerequisites.md) :arrow_left:  **Read this before training starts**
 * [Create a new Kedro project](./03_new_project.md)
 * [Project dependencies](./04_dependencies.md)
 * [Add a data source](./05_connect_data_sources.md)
