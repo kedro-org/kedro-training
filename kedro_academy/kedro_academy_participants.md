@@ -1,4 +1,4 @@
-# Kedro Academy attendees
+# Kedro Academy participants
 
 Add your GitHub username below:
 
