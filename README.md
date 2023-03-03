@@ -1,5 +1,10 @@
 # Kedro Training
 
+> **Warning**
+> This repository has been archived, see [kedro-academy](https://github.com/kedro-org/kedro-academy) for a more up to date version.
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 This repository contains training materials that will teach you how to use [Kedro](https://github.com/kedro-org/kedro). This content is based on the standard [spaceflights tutorial described in the Kedro documentation](https://kedro.readthedocs.io/en/stable/03_tutorial/01_spaceflights_tutorial.html). 
 
 The training documentation was most recently updated against Kedro 0.17.2 in March 2021.
